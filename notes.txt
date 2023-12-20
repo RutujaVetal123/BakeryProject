@@ -1,0 +1,387 @@
+Short forms:
+DOM: document object model
+json: javascript object notation
+
+*************************************************
+-------------------------------------------------
+
+Keyboard shortcuts
+
+ctrl+shift+l = developer tools
+ctrl+l = to clear the web console
+ctrl+alt+4 = to print rupees sign
+ctrl+shift+p = for command palate (VS code)
+ctrl+y = redo
+ctrl+z = undo
+shift + rightclick = to open powershell
+*************************************************
+-------------------------------------------------
+
+syntax
+border = border: solid 1px blue;
+
+selector = element(class) .header{} ,tag(id) #header-1{} ,
+
+button#click-me  //buttonwith id click-me
+
+*************************************************
+-------------------------------------------------
+
+APIs used
+Local storage API
+
+Geolocation API
+
+*************************************************
+-------------------------------------------------
+
+
+
+Elements : html,head, body
+tags : a,div,img
+attributes : class, style
+-------------------------------------------------
+emmet : built in Extention used for making html code writing easily as we just need to add abbrivation and it will write the code 
+for it.
+
+control pattete added into json file
+
+Inheritance in tags
+* first the main tag will have priority
+then the subsequent tags will have priority
+* for same tags the last one will have the priority
+for example:
+1> .heading{}
+    h1{}
+you will inherit all the properties of heading but to add specifc to h1 you will need to declere specific prpety in h1 as well
+
+2>
+h1{color red}
+h1{color blue}
+
+the preference will be given to last h1 so the output color will be blue
+-------------------------------------------------
+
+ priority of style = style.css < <style> < style=""
+
+ -------------------------------------------------
+data- allows you to add extra information about element
+
+*************************************************
+-------------------------------------------------
+
+JAVASCRIPT
+
+string : number of characters and spaces strung together
+examples on console <needed special formatting " ">
+>hello
+>uncaught error
+
+>"hello"
+<"hello"
+
+>"hello".lengths
+<5
+
+
+Numbers <no formatting needed>
+>1
+<1
+
+>1+1 <expression>
+<2
+
+>(6*6)/(2*3)
+<6
+
+Variables<placeholder for values>
+>let name="ram"
+<undefined
+
+>name
+<"ram
+
+>name="sham"
+<"sham"
+
+>name
+<"sham"
+
+constant<placeholder for values which cannot be changed>
+>const maxQuantity = 2
+<undefined
+
+>maxQuantity = 3
+<uncaught error
+
+>maxQuantity
+<2
+
+Operator
+>1+1  <+ op for addition>
+<2
+
+>"ram"+"sham"  <+op for str concat>
+<"ramsham"
+
+>"ram"+" "+"sham"
+<"ram sham"
+
+>1+1=2  <=op used for assignment>
+<uncaught error
+
+>let x = 1 <1 assign to x var>
+<undefined
+
+>1+1===2  <===op gives boolean output>
+<true
+
+-------------------------------------------------
+
+Control Flow {} works in block structure
+
+-------------------------------------------------
+
+if else
+
+-------------------------------------------------
+
+function
+function greet() //declaration
+{
+
+}
+
+greet(); //fun call
+
+arrguments
+
+function greet(name)
+{
+
+}
+
+greet(ram);
+
+function greet(name)
+{
+return "hello";
+
+
+}
+
+let msg = greet(ram);
+console.log(msg);
+
+-------------------------------------------------
+
+Object Literals <oop>
+
+let person = {         //Object
+ firstname : "ram",
+ lastname : "das",
+ twitter : "@ramdas123"
+ greet() : function()
+ {
+    console.log("my name is "+firstname);
+ }
+};
+
+console.log(person);//(person.firstname)
+person.greet();
+
+-------------------------------------------------
+
+Arrays
+
+let array = [];
+
+let name = ["ram","sham","john"];
+
+let array = [100,true,"john"];
+
+console.log(array);
+
+console.log(array[0]);  >100
+
+array.reverse();     >reverse the array values
+
+array.length    >length of the array
+
+array.push("New item");     >add the element in the array and gives output as length
+
+-------------------------------------------------
+
+loops
+
+let count = 0;
+let max = 10;
+
+while(count < max)    >will iterate until the expression is true
+{
+    console.log(count);
+    count=count+1;
+}
+
+for( let i=0;i<10;i++)
+{
+    console.log(i);
+}
+
+days = ["Mon","Tue","Wed"];
+
+days.forEach(function(day,index)
+{
+console.log(`day:  ${day}, index: ${index}` );
+});
+
+
+*************************************************
+-------------------------------------------------
+
+>document
+this object represents webpage or document thats running in the browser
+
+>document.getElementById("columns");
+returns to the section element that has a id columns
+
+>document.querySelector(".card");
+returns the first match of the selector
+
+>document.querySelectorAll(".card");
+returns the nodelit of all matching selectors
+
+>document.querySelector("a[href='https://twitter.com/craigshoemaker']")
+
+*************************************************
+-------------------------------------------------
+
+we can designet the destination of the link location
+let links = document.querySelectorAll(".tag");   //select all the elemnts that have the class tag
+links.forEach(function(link){
+    link.setAttribute("target","_blank");   //set or update the attribute values
+});
+
+
+link.getAttribute("target")
+<"_blank"
+
+link.removeAttribute("target")
+will remove the target attribute
+
+-------------------------------------------------
+
+let card = document.querySelector(".card");
+
+card  // will return the section related to the card
+
+card.classList.add("dark");
+
+card.classList
+<DOMTOKENLIST(2) ["card","dark",value : "card dark"]
+
+card.classList.remove("dark")
+
+card.classList
+<DOMTOKENLIST ["card",value : "card"]
+
+
+*************************************************
+-------------------------------------------------
+
+script tag
+
+to add external sript file
+
+<script src="index.js" type="text/javascript"></script>
+
+-------------------------------------------------
+
+window tag
+w object is  the context for scripts running within a web 
+
+>window
+
+>window.location    //location of the window
+
+-------------------------------------------------
+
+debugging
+
+in developer tools go to source add brekpoint refresh the page and press f10 to call next line(or func)
+
+-------------------------------------------------
+
+Events
+
+signals when something happens,when an Event occurs in a program the application sends
+a notifcation to the rest of the code 
+
+function used : addEventListener
+                        Event name
+
+window.addEventListener("  ", function(e){});  ///e=event obj
+
+<button id="click-me">clisck me</button>
+<script>
+window.addEventListener("DOMContentLoaded",function(e){
+    console.log("page is loaded");
+
+let btn = document.querySelector("#click-me");
+btn.addEventListener("click",function(e){
+    console.log("button clicked");
+});
+
+});
+
+</script>
+
+<the page is loaded
+<button clicked
+
+
+Orientation change event handler
+
+<script>
+window.addEventListener("orientationchange",function(e){
+    let screen = window.screen;
+    let angle = screen.orientation.angle;
+    let type = screen.orientation.type;
+    console.log(`angle: ${ angle }, type: ${ type }`);
+});
+</script>
+
+-------------------------------------------------
+
+Browser APIs >application programming interface
+
+fallbacks :
+It is a script that your browser can fall back to if the built in funtionality doesen't exist.
+ulternative for built in browser funtionality (not alwyas work as native functionality)
+
+polyfills :
+it is meant to mimic built-in browser functionality already using supported features
+
+determining browser support
+
+websites are bookmarked
+
+-------------------------------------------------
+
+Collecting user data
+
+LocalStorage
+                     key
+localStorage.setItem("  ",{});  //use to save and retrieve the data
+
+
+*************************************************
+-------------------------------------------------
+
+$(function () {
+            // Show tab depending on path
+            var path = window.location.pathname;
+            path = path.replace("/Profile/", "");
+            $('.nav-tabs a').removeClass('active');
+            $('.nav-tabs a[href="' + path + '"]').addClass('active').tab('show');
+        });

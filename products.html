@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<htm lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="favicon.ico">
+        <link rel="stylesheet" href="styles.css" type="text/css">
+        <title>Products | RMV's Bakery Shop</title>
+        <style>
+
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="products.html">Our Products</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <aside><img src="Images/output-onlinepngtools.png" alt="RMV's Bakery Shop"
+                    style="width: 150px;background-color: transparent;">
+            </aside>
+            <article>
+                <section class="columns-desktop">
+                    <div class="cake">
+                        <img src="Images/apple-pie.png" alt="apple-pie" />
+                        <div class="columns">
+                            <div class="title">Dark Chocolate Cake</div>
+                            <div class="price">500 ₹</div>
+                            <!-- for rupee sign press ctrl+alt+4 -->
+                        </div>
+                        <p class="desc">Our famous chocolate cake</p>
+                        <button data-order="apple-pie">Order</button>
+                    </div>
+                    <div class="cake">
+                        <img src="Images/barbie_cake.jpg" alt="barbie_cake" />
+                        <div class="columns">
+                            <div class="title">Barbie Cake</div>
+                            <div class="price">1500 ₹</div>
+                            <!-- for rupee sign press ctrl+alt+4 -->
+                        </div>
+                        <p class="desc">Our custom made barbie cake</p>
+                        <button data-order="barbie_cake">Order</button>
+                    </div>
+                </section>
+            </article>
+        </main>
+        <footer>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="products.html">Our Products</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </footer>
+    </body>
+    <script>
+        window.addEventListener("DOMContentLoaded", function (e) {
+            const orderButtons = document.querySelectorAll("button[data-order]");
+            orderButtons.forEach(function (button) {
+                button.addEventListener("click", function (e) {
+                    const button = e.currentTarget;
+                    const container = button.parentNode;
+
+                    const order = {
+                        id: (id = button.getAttribute("data-order")),
+                        title: container.querySelector(".title").innerText,
+                        price: container.querySelector(".price").innerText,
+                        desc: container.querySelector(".desc").innerText
+
+                    };
+                    localStorage.setItem("order", JSON.stringify(order));
+                    // tells to save the order obj details with id in localstorage
+                    const url = window.location.href.replace("products.html", "order.html");
+                    window.location.href = url;
+                });
+            });
+        });
+    </script>
+
+    </html>
